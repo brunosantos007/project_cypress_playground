@@ -1,17 +1,12 @@
 /// <reference types="cypress" />
 
-beforeEach('Open the App', () => {
-    cy.visit('/')
-    cy.contains('Forms').click()
-    cy.contains('Datepicker').click()
-    cy.get('div > a.sidebar-toggle').click()
-})
+import { navigateTo } from "../../../page_objects/navigationPage";
 
 
 describe('Common Datepicker', () => {
 
     it('Selecting Date', () => {
-        
+        navigateTo.datepicker_Page()
         let date = new Date()
         // Example of how to find an exactly day that we could need
         //date.setDate(date.getDate() + 3)
@@ -25,8 +20,8 @@ describe('Common Datepicker', () => {
         })
     });
 
-    it.only('Selecting Date from other Months', () => {
-
+    it('Selecting Date from other Months', () => {
+        navigateTo.datepicker_Page()
         function selectDateFromCurrentDay(day) {
             let date = new Date()
             date.setDate(date.getDate() + day)

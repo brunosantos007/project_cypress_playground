@@ -1,15 +1,10 @@
 /// <reference types="cypress" />
 
-beforeEach('Open the App', () => {
-    cy.visit('/')
-    cy.contains('Tables & Data').click()
-    cy.contains('Smart Table').click()
-    cy.get('div > a.sidebar-toggle').click()
-})
-
+import { navigateTo } from "../../page_objects/navigationPage";
 
 describe('Testing the Dialog Box', () => {
     it('Dialog Box for Delete', () => {
+        navigateTo.smart_table_Page()
         //cy.get('.nb-trash').first().click()
         //cy.on('window:confirm', confirm => {
             //expect(confirm).to.equal('Are you sure you want to delete?')
@@ -26,6 +21,7 @@ describe('Testing the Dialog Box', () => {
 
 describe('Web Tables', () => {
     it('Edit values on the table', () => {
+        navigateTo.smart_table_Page()
         cy.get('tbody').contains('tr', 'Larry').then(tableRow => {
             cy.wrap(tableRow).find('.nb-edit').click()
             cy.wrap(tableRow).find('[placeholder="Age"]').clear().type('35')
@@ -35,6 +31,7 @@ describe('Web Tables', () => {
     });
 
     it('Create a new User', () => {
+        navigateTo.smart_table_Page()
         cy.get('.nb-plus').click()
         cy.get('thead tr').eq(2).then(tableRow => {
             cy.wrap(tableRow).find('[placeholder="First Name"]').type('Ramirez')
@@ -48,7 +45,8 @@ describe('Web Tables', () => {
         })
     });
 
-    it.only('Filter Data from Web Table', () => {
+    it('Filter Data from Web Table', () => {
+        navigateTo.smart_table_Page()
         const ages = [20, 30, 40, 200]
 
         cy.wrap(ages).each(age => {
