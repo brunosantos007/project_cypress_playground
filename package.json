@@ -4,7 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:form-layout": "npx cypress run --spec 'cypress/e2e/forms/forms_layout/form_layout.cy.js'",
+    "cypress:drag-drop": "npx cypress run --spec 'cypress/e2e/extra_components/drag_and_drop/drag_and_drop.cy.js'",
+    "cypress:date-picker": "npx cypress run --spec 'cypress/e2e/forms/date_picker/date_picker.cy.js'",
+    "cypress:temperature": "npx cypress run --spec 'cypress/e2e/iot_dashboard/temperature/temperature.cy.js'",
+    "cypress:dialog": "npx cypress run --spec 'cypress/e2e/modal_and_overlays/dialog/dialog.cy.js'",
+    "cypress:toastr": "npx cypress run --spec 'cypress/e2e/modal_and_overlays/toastr/toastr.cy.js'",
+    "cypress:tooltip": "npx cypress run --spec 'cypress/e2e/modal_and_overlays/tooltip/tooltip.cy.js'",
+    "cypress:smart-table": "npx cypress run --spec 'cypress/e2e/tables_and_data/smart_table.cy.js'"
   },
   "author": "",
   "license": "ISC",
