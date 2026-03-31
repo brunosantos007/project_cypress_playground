@@ -8,6 +8,10 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+    retries: { // It will executed the failure test how many times you want
+      openMode: 0,
+      runMode: 0
+    },
   },
   defaultCommandTimeout: 6000,
   screenshotsFolder: "cypress/screenshots",
