@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="4.885" tests="1" failures="0">
-  <testsuite name="Root Suite" timestamp="2026-04-01T00:25:18" tests="0" file="cypress\e2e\extra_components\drag_and_drop\drag_and_drop.cy.js" time="0.000" failures="0">
-  </testsuite>
-  <testsuite name="To do List" timestamp="2026-04-01T00:25:18" tests="1" time="4.884" failures="0">
-    <testcase name="To do List Move tasks from To do to Dome" time="4.828" classname="Move tasks from To do to Dome">
-    </testcase>
-  </testsuite>
-</testsuites>
