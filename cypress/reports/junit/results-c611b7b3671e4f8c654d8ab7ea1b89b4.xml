@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="10.936" tests="6" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-04-01T00:26:12" tests="0" file="cypress\e2e\modal_and_overlays\tooltip\tooltip.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Tooltip Placements" timestamp="2026-04-01T00:26:12" tests="4" time="8.544" failures="0">
+    <testcase name="Tooltip Placements Top" time="4.880" classname="Top">
+    </testcase>
+    <testcase name="Tooltip Placements Right" time="1.179" classname="Right">
+    </testcase>
+    <testcase name="Tooltip Placements Bottom" time="1.240" classname="Bottom">
+    </testcase>
+    <testcase name="Tooltip Placements Left" time="1.142" classname="Left">
+    </testcase>
+  </testsuite>
+  <testsuite name="Tooltip With Icon" timestamp="2026-04-01T00:26:21" tests="2" time="2.390" failures="0">
+    <testcase name="Tooltip With Icon Show Tooltip" time="1.170" classname="Show Tooltip">
+    </testcase>
+    <testcase name="Tooltip With Icon Show Tooltip 2" time="1.160" classname="Show Tooltip 2">
+    </testcase>
+  </testsuite>
+</testsuites>

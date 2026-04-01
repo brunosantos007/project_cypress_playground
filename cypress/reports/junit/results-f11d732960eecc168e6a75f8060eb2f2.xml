@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="15.000" tests="4" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-04-01T00:24:48" tests="0" file="cypress\e2e\auth\auth.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Register" timestamp="2026-04-01T00:24:48" tests="4" time="14.999" failures="0">
+    <testcase name="Register Register an User" time="8.092" classname="Register an User">
+    </testcase>
+    <testcase name="Register Test cases for Errors" time="2.400" classname="Test cases for Errors">
+    </testcase>
+    <testcase name="Register Test cases for Errors" time="2.258" classname="Test cases for Errors">
+    </testcase>
+    <testcase name="Register Test cases for Errors" time="2.136" classname="Test cases for Errors">
+    </testcase>
+  </testsuite>
+</testsuites>

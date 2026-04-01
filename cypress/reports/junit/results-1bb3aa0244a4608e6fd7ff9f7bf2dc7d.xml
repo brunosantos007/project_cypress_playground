@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="4.145" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-04-01T00:26:24" tests="0" file="cypress\e2e\iot_dashboard\temperature\temperature.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Temperature" timestamp="2026-04-01T00:26:24" tests="1" time="4.144" failures="0">
+    <testcase name="Temperature Change the Temperature" time="4.109" classname="Change the Temperature">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="13.059" tests="4" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-04-01T00:25:04" tests="0" file="cypress\e2e\tables_and_data\smart_table.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Testing the Dialog Box" timestamp="2026-04-01T00:25:04" tests="1" time="5.744" failures="0">
+    <testcase name="Testing the Dialog Box Dialog Box for Delete" time="5.704" classname="Dialog Box for Delete">
+    </testcase>
+  </testsuite>
+  <testsuite name="Web Tables" timestamp="2026-04-01T00:25:10" tests="3" time="7.313" failures="0">
+    <testcase name="Web Tables Edit values on the table" time="1.544" classname="Edit values on the table">
+    </testcase>
+    <testcase name="Web Tables Create a new User" time="1.757" classname="Create a new User">
+    </testcase>
+    <testcase name="Web Tables Filter Data from Web Table" time="3.928" classname="Filter Data from Web Table">
+    </testcase>
+  </testsuite>
+</testsuites>

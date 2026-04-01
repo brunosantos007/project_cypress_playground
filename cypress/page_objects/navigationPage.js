@@ -63,6 +63,12 @@ class NavigationPage {
         cy.get('div > a.sidebar-toggle').click()
     }
 
+    register_page() {
+        cy.visit('/')
+        selectGroupMenuItem('Auth')
+        cy.contains('Register').click()
+    }
+
 }
 
 export const navigateTo = new NavigationPage()

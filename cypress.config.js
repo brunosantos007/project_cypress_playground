@@ -6,7 +6,11 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: "https://playground.bondaracademy.com/pages/iot-dashboard",
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
+    reporter: 'cypress-multi-reporters',
+    reporterOptions: {
+      configFile: 'reporter-config.json',
     },
     retries: { // It will executed the failure test how many times you want
       openMode: 0,

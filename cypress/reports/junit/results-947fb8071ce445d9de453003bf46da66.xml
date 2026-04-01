@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="7.132" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-04-01T00:25:25" tests="0" file="cypress\e2e\modal_and_overlays\dialog\dialog.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Iframe Dialog" timestamp="2026-04-01T00:25:25" tests="2" time="7.131" failures="0">
+    <testcase name="Iframe Dialog One way to test Iframes" time="5.385" classname="One way to test Iframes">
+    </testcase>
+    <testcase name="Iframe Dialog Another way to test Iframes" time="1.704" classname="Another way to test Iframes">
+    </testcase>
+  </testsuite>
+</testsuites>

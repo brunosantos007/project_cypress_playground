@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="14.720" tests="2" failures="1">
+  <testsuite name="Root Suite" timestamp="2026-04-01T00:25:43" tests="0" file="cypress\e2e\forms\date_picker\date_picker.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Common Datepicker" timestamp="2026-04-01T00:25:43" tests="2" time="14.718" failures="1">
+    <testcase name="Common Datepicker Selecting Date" time="0.000" classname="Selecting Date">
+      <failure message="Timed out retrying after 6000ms: expected &apos;&lt;input.size-medium.status-basic.shape-rectangle.nb-transition.cdk-focused.cdk-mouse-focused&gt;&apos; to have value &apos;Mar 1, 2026&apos;, but the value was &apos;Apr 1, 2026&apos;" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 6000ms: expected '<input.size-medium.status-basic.shape-rectangle.nb-transition.cdk-focused.cdk-mouse-focused>' to have value 'Mar 1, 2026', but the value was 'Apr 1, 2026'
+    at Context.eval (webpack://project_cypress_playground/./cypress/e2e/forms/date_picker/date_picker.cy.js:19:27)
+    at getRet (https://playground.bondaracademy.com/__cypress/runner/cypress_runner.js:122807:20)
+    at tryCatcher (https://playground.bondaracademy.com/__cypress/runner/cypress_runner.js:1777:23)
+    at Promise.attempt.Promise.try (https://playground.bondaracademy.com/__cypress/runner/cypress_runner.js:4285:29)
+    at Context.thenFn (https://playground.bondaracademy.com/__cypress/runner/cypress_runner.js:122818:66)
+    at Context.then (https://playground.bondaracademy.com/__cypress/runner/cypress_runner.js:123069:21)
+    at wrapped (https://playground.bondaracademy.com/__cypress/runner/cypress_runner.js:146330:19)
+
+      + expected - actual
+
+      -'Apr 1, 2026'
+      +'Mar 1, 2026'
+      ]]></failure>
+    </testcase>
+    <testcase name="Common Datepicker Selecting Date from other Months" time="3.501" classname="Selecting Date from other Months">
+    </testcase>
+  </testsuite>
+</testsuites>
