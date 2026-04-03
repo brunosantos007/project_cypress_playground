@@ -7,6 +7,8 @@ module.exports = defineConfig({
     baseUrl: "https://playground.bondaracademy.com/pages/iot-dashboard",
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
+      const { plugin: cypressGrepPlugin } = require('@cypress/grep/plugin')
+      cypressGrepPlugin(config)
     },
     reporter: 'cypress-multi-reporters',
     reporterOptions: {

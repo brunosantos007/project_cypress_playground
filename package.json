@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "delete:reports": "rmdir /s /q cypress/reports/* || true",
+    "delete:reports": "rmdir /s /q cypress\\reports && mkdir cypress\\reports",
     "prereport": "npm run delete:reports",
     "junit:merge": "npx junit-merge -d 'cypress/reports/junit' -o 'cypress/reports/junit/results.xml'",
     "cy:run:all": "npm run prereport && npx cypress run || true && npm run junit:merge",
@@ -20,6 +20,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@cypress/grep": "^6.0.0",
     "@faker-js/faker": "^10.4.0",
     "cypress": "^15.12.0",
     "cypress-iframe": "^1.0.1",

@@ -5,7 +5,7 @@ import { navigateTo } from "../../../page_objects/navigationPage"
 import { faker } from '@faker-js/faker';
 
 
-describe('Inline Form', () => {
+describe('Inline Form', {tags: '@formOne'}, () => {
     const nameTest = 'Testador'
     it('Inline Form Completed', () => {
         navigateTo.forms_layout_Page()
