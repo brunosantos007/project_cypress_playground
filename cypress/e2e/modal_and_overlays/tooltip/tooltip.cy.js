@@ -37,7 +37,7 @@ describe('Tooltip With Icon',() => {
         cy.get('nb-tooltip').should('have.text', 'This is a tooltip')
     });
 
-    it('Show Tooltip 2', () => {
+    it.only('Show Tooltip 2', () => {
         navigateTo.tooltip_Page()
         cy.get('button[nbtooltipicon="alert-triangle"]').trigger('mouseenter')
         cy.get('nb-tooltip').should('be.visible')

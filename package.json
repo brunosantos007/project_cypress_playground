@@ -8,6 +8,7 @@
     "prereport": "npm run delete:reports",
     "junit:merge": "npx junit-merge -d 'cypress/reports/junit' -o 'cypress/reports/junit/results.xml'",
     "cy:run:all": "npm run prereport && npx cypress run || true && npm run junit:merge",
+    "cypress:auth-register": "npm run prereport && npx cypress run --spec 'cypress/e2e/auth/register.cy.js' || true && npm run junit:merge",
     "cypress:form-layout": "npx cypress run --spec 'cypress/e2e/forms/forms_layout/form_layout.cy.js'",
     "cypress:drag-drop": "npx cypress run --spec 'cypress/e2e/extra_components/drag_and_drop/drag_and_drop.cy.js'",
     "cypress:date-picker": "npx cypress run --spec 'cypress/e2e/forms/date_picker/date_picker.cy.js'",
