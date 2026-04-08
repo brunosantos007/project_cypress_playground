@@ -25,6 +25,15 @@ class formLayoutPage {
             cy.wrap(allElements).find('[status="primary"]').click()
         })
     }
+
+    basicForm() {
+        cy.contains('nb-card', 'Basic form').then(elementsBasicForm => {
+            cy.wrap(elementsBasicForm).find('[id="exampleInputEmail1"]').type(`${faker.internet.email()}`)
+            cy.wrap(elementsBasicForm).find('[id="exampleInputPassword1"]').type(`${faker.internet.password()}`)
+            cy.wrap(elementsBasicForm).find('[type="checkbox"]').check({ force: true })
+            cy.wrap(elementsBasicForm).find('[class="appearance-filled size-medium shape-rectangle status-danger nb-transition"]').click()
+        })
+    }
 }
 
 export const form_layout_page = new formLayoutPage()

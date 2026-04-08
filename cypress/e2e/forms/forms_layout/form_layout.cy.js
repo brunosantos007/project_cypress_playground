@@ -14,11 +14,15 @@ describe('Inline Form', {tags: '@formOne'}, () => {
 })
 
 describe('Using the Grid', () => {
-
     it('Grid', () => {
         navigateTo.forms_layout_Page()
         form_layout_page.gridForm()
     })
+})
 
-
+describe('Basic Form', () => {
+    it.only('Basic Form Completed', () => {
+        navigateTo.forms_layout_Page()
+        form_layout_page.basicForm()
+    });
 })
