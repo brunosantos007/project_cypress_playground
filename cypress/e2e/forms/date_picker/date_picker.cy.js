@@ -1,9 +1,15 @@
 /// <reference types="cypress" />
 
+import { date_picker_page } from "../../../page_objects/forms/date_picker_page";
 import { navigateTo } from "../../../page_objects/navigationPage";
 
 
 describe('Common Datepicker', () => {
+
+    it.only('Open the calendar', () => {
+        navigateTo.datepicker_Page()
+        date_picker_page.openCalendar()
+    });
 
     it('Selecting Date', () => {
         navigateTo.datepicker_Page()

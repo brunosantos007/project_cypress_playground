@@ -54,16 +54,47 @@ class formLayoutPage {
 
     formWithoutLabels() {
         cy.contains('nb-card', 'Form without labels').then(elementsformWithoutLabels => {
-            cy.wrap(elementsformWithoutLabels).find('[placeholder="Recipients"]').type(`${faker.food.ingredient}`)
-            cy.wrap(elementsformWithoutLabels).find('[placeholder="Subject"]').type(`${faker.food.description}`)
-            cy.wrap(elementsformWithoutLabels).find('[placeholder="Message"]').type(`${faker.food.ethnicCategory}`)
-            cy.wrap(elementsformWithoutLabels).find('nbbutton').click()
+            cy.wrap(elementsformWithoutLabels).find('[placeholder="Recipients"]').type(`${faker.commerce.productName()}`)
+            cy.wrap(elementsformWithoutLabels).find('[placeholder="Subject"]').type(`${faker.commerce.productDescription()}`)
+            cy.wrap(elementsformWithoutLabels).find('[placeholder="Message"]').type(`${faker.commerce.department()}`)
+            cy.wrap(elementsformWithoutLabels).find('button').click()
         })
     }
 
     formWithoutLabelsNoValidation() {
         cy.contains('nb-card', 'Form without labels').then(elementsformWithoutLabels => {
-            cy.wrap(elementsformWithoutLabels).find('nbbutton').click()
+            cy.wrap(elementsformWithoutLabels).find('button').click()
+        })
+    }
+
+    blockForm() {
+        cy.contains('nb-card', 'Block form').then(elementsBlockForm => {
+            cy.wrap(elementsBlockForm).find('[id="inputFirstName"]').type(`${faker.person.firstName()}`)
+            cy.wrap(elementsBlockForm).find('[id="inputLastName"]').type(`${faker.person.lastName()}`)
+            cy.wrap(elementsBlockForm).find('[id="inputEmail"]').type(`${faker.internet.email()}`)
+            cy.wrap(elementsBlockForm).find('[id="inputWebsite"]').type(`${faker.internet.url()}`)
+            cy.wrap(elementsBlockForm).find('button').click()
+        })
+    }
+
+    blockFormNoValidation() {
+        cy.contains('nb-card', 'Block form').then(elementsBlockForm => {
+            cy.wrap(elementsBlockForm).find('button').click()
+        })
+    }
+
+    horizontalForm() {
+        cy.contains('nb-card', 'Horizontal form').then(elementsHorizontalForm => {
+            cy.wrap(elementsHorizontalForm).find('[id="inputEmail3"]').type(`${faker.internet.email()}`)
+            cy.wrap(elementsHorizontalForm).find('[id="inputPassword3"]').type(`${faker.internet.password()}`)
+            cy.wrap(elementsHorizontalForm).find('[type="checkbox"]').check({ force: true })
+            cy.wrap(elementsHorizontalForm).find('button').click()
+        })
+    }
+
+    horizontalFormNoValidation() {
+        cy.contains('nb-card', 'Horizontal form').then(elementsHorizontalForm => {
+            cy.wrap(elementsHorizontalForm).find('button').click()
         })
     }
 }
