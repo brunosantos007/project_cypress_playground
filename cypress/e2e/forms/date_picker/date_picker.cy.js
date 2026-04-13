@@ -1,14 +1,21 @@
 /// <reference types="cypress" />
 
+//import { describe } from "mocha";
 import { date_picker_page } from "../../../page_objects/forms/date_picker_page";
 import { navigateTo } from "../../../page_objects/navigationPage";
 
 
 describe('Common Datepicker', () => {
 
-    it.only('Open the calendar', () => {
+    it('Open the calendar', () => {
         navigateTo.datepicker_Page()
         date_picker_page.openCalendar()
+        cy.get('nb-datepicker-container').should('be.visible')
+    });
+
+    it('Select a date from the current day/month', () => {
+        navigateTo.datepicker_Page()
+        date_picker_page.selectCurrentDayOfMonthCommonDatepicker()
     });
 
     it('Selecting Date', () => {
@@ -17,7 +24,7 @@ describe('Common Datepicker', () => {
         // Example of how to find an exactly day that we could need
         //date.setDate(date.getDate() + 3)
         let todaysDate = date.getDate()
-        let dateToAssert = `Mar ${todaysDate}, 2026`
+        let dateToAssert = `Apr ${todaysDate}, 2026`
 
         cy.get('[placeholder="Form Picker"]').then(input => {
             cy.wrap(input).click()
@@ -58,4 +65,11 @@ describe('Common Datepicker', () => {
         })
     });
 
+})
+
+describe('Datepicker With Disabled Min Max Values', () => {
+    it('Prevent selecting dates from the previous month', () => {
+        navigateTo.datepicker_Page()
+        date_picker_page.selectPreviousDate()
+    });
 })
