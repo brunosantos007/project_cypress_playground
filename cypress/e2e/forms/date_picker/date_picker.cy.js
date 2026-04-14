@@ -65,11 +65,27 @@ describe('Common Datepicker', () => {
         })
     });
 
+
+    it('Navigate to the previous month', () => {
+        navigateTo.datepicker_Page()
+        date_picker_page.selectPreviousFollowingMonth('Previous')
+    });
+
+    it.only('Navigate to the next month', () => {
+        navigateTo.datepicker_Page()
+        date_picker_page.selectPreviousFollowingMonth('Next')
+    });
+
 })
 
 describe('Datepicker With Disabled Min Max Values', () => {
     it('Prevent selecting dates from the previous month', () => {
         navigateTo.datepicker_Page()
-        date_picker_page.selectPreviousDate()
+        date_picker_page.selectPreviousFollowingDate('Previous')
+    });
+
+    it('Prevent selecting dates from the following month', () => {
+        navigateTo.datepicker_Page()
+        date_picker_page.selectPreviousFollowingDate('Following')
     });
 })
