@@ -68,6 +68,57 @@ class datePickerPage {
         }
     }
 
+    keepFieldEmptyNoSelection() {
+        cy.contains('nb-card', 'Common Datepicker').then(elementsCommonDatePicker => {
+            cy.wrap(elementsCommonDatePicker).find('[placeholder="Form Picker"]').click()
+            cy.wrap(elementsCommonDatePicker).find('[placeholder="Form Picker"]').should('be.empty')
+        })
+    }
+
+    datepickerRangeDateStart() {
+        let todayDay = this.day.getDate()
+        let todayMonth = this.month.toLocaleDateString('en-US', { month: 'short'})
+        let todayYear = this.year.getFullYear()
+        let dateToAssert = `${todayMonth} ${todayDay}, ${todayYear}`
+        cy.contains('nb-card', 'Datepicker With Range').then(elementsCommonDatePicker => {
+            cy.wrap(elementsCommonDatePicker).find('[placeholder="Range Picker"]').click()
+            cy.get('nb-calendar-range-day-cell.today').not('.bounding-month').click()
+            cy.wrap(elementsCommonDatePicker).find('[placeholder="Range Picker"]').should('have.value', dateToAssert)
+        })
+    }
+
+    selectDateFromCurrentDay(day) {
+            let date = new Date()
+            date.setDate(date.getDate() + day)
+            let futureDay = date.getDate()
+            let futureMonthLong = date.toLocaleDateString('en-US', { month: 'long'})
+            let futureMonthShort = date.toLocaleDateString('en-US', { month: 'short'})
+            let futureYear = date.getFullYear()
+            let dateToAssert = `${futureMonthShort} ${futureDay}, ${futureYear}`
+
+            cy.get('nb-calendar-view-mode').invoke('text').then(calendarMonthAndYear => {
+
+                if (!calendarMonthAndYear.includes(futureMonthLong) || !calendarMonthAndYear.includes(futureYear)) {
+                    cy.get('[data-name="chevron-right"]').click()
+                    selectDateFromCurrentDay(day)
+                } else {
+                    cy.get('.day-cell').not('.bounding-month').contains(futureDay).click()
+                }
+
+            })
+    }
+
+    datepickerRangeDateStartAndEnd() {
+        cy.contains('nb-card', 'Datepicker With Range').then(elementsCommonDatePicker => {
+            cy.wrap(elementsCommonDatePicker).find('[placeholder="Range Picker"]').click()
+            cy.get('nb-calendar-range-day-cell.today').not('.bounding-month').click()
+
+            const dateToAssert = selectDateFromCurrentDay(5)
+            cy.contains('nb-calendar-range-day-cell', dateToAssert).click()
+            ///cy.wrap(elementsCommonDatePicker).find('[placeholder="Range Picker"]').should('have.value', dateToAssert)
+        })
+    }
+
 }
 
 export const date_picker_page = new datePickerPage()

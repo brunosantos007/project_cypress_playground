@@ -71,9 +71,27 @@ describe('Common Datepicker', () => {
         date_picker_page.selectPreviousFollowingMonth('Previous')
     });
 
-    it.only('Navigate to the next month', () => {
+    it('Navigate to the next month', () => {
         navigateTo.datepicker_Page()
         date_picker_page.selectPreviousFollowingMonth('Next')
+    });
+
+    it('Keep the field empty when no date is selected', () => {
+        navigateTo.datepicker_Page()
+        date_picker_page.keepFieldEmptyNoSelection()
+    });
+
+})
+
+describe('Datepicker With Range', () => {
+    it('Date Range Picker - Select a start date', () => {
+        navigateTo.datepicker_Page()
+        date_picker_page.datepickerRangeDateStart()
+    });
+
+    it.only('Display the full date range - Start Date and End Date', () => {
+        navigateTo.datepicker_Page()
+        date_picker_page.datepickerRangeDateStartAndEnd()
     });
 
 })
