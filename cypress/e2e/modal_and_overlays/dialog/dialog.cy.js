@@ -1,6 +1,26 @@
 /// <reference types="cypress" />
 
 import { navigateTo } from "../../../page_objects/navigationPage";
+import { dialog_page } from "../../../page_objects/modals_&_overlays/dialog";
+
+describe('Open Dialog', () => {
+    it('Component dialog opens', () => {
+        navigateTo.dialog_Page()
+        dialog_page.openDialogWithComponents()
+    });
+
+    it('Template dialog opens', () => {
+        navigateTo.dialog_Page()
+        dialog_page.openDialogWithTemplate()
+    });
+})
+
+describe('Open Dialog With Delay', () => {
+    it('Delayed dialog (3 seconds)', () => {
+        navigateTo.dialog_Page()
+        dialog_page.openDialogWithDelay3Seconds()
+    });
+})
 
 
 
