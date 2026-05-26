@@ -20,9 +20,12 @@ describe('Open Dialog With Delay', () => {
         navigateTo.dialog_Page()
         dialog_page.openDialogWithDelay3Seconds()
     });
+
+    it('Delayed dialog (10 seconds)', () => {
+        navigateTo.dialog_Page()
+        dialog_page.openDialogWithDelay10Seconds()
+    });
 })
-
-
 
 describe('Iframe Dialog', () => {
 
@@ -41,4 +44,23 @@ describe('Iframe Dialog', () => {
         })
     });
     
+})
+
+describe('Open Without Backdrop Click', () => {
+    it('Backdrop click closes dialog ', () => {
+        navigateTo.dialog_Page()
+        dialog_page.openDialogWithBackdropClick()
+    });
+
+    it('Backdrop click does NOT close dialog (backdrop disabled)', () => {
+        navigateTo.dialog_Page()
+        dialog_page.openWithoutBackdropClick()
+    });
+})
+
+describe('Random Dialog', () => {
+    it.only('Enter Name dialog accepts input', () => {
+        navigateTo.dialog_Page()
+        dialog_page.randomDialogEnterName()
+    });
 })
