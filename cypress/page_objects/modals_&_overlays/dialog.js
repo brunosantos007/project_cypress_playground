@@ -49,15 +49,23 @@ class dialogPage {
         })
     }
     randomDialogEnterName() {
-        cy.contains('nb-card', 'Random dialog').then(elementsRandomDialog => {
-            cy.wrap(elementsRandomDialog).contains('button', 'Enter Name').click()
-            if (cy.contains('Reminder, name should start with capital case!')) {
-                cy.contains('button', 'OK').click()
-            } else {
-                cy.get('nbinput').type(`${faker.person.firstName()}`)
-                cy.contains('button', 'Submit').click()
-            }
-        })
+            cy.contains('nb-card', 'Random dialog').contains('button', 'Enter Name').click()
+            const name = faker.person.firstName()
+
+            cy.get('body').then($body => {
+            const alertaExiste = $body.find('div:contains("Reminder, name should start with capital case!")').length > 0
+
+                if (alertaExiste) {
+                    cy.contains('button', 'OK').click()
+                    cy.get('input[nbinput]').type(name)
+                    cy.contains('button', 'Submit').click()
+                    cy.contains('li', name).should('be.visible')
+                } else {
+                    cy.get('input[nbinput]').type(name)
+                    cy.contains('button', 'Submit').click()
+                    cy.contains('li', name).should('be.visible')
+                }
+            })
     }
 
 }

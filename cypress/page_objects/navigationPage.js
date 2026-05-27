@@ -41,6 +41,13 @@ class NavigationPage {
         cy.contains('Dialog').click()
         cy.get('div > a.sidebar-toggle').click()
     }
+
+    window_Page() {
+        cy.visit('/')
+        selectGroupMenuItem('Modal & Overlays')
+        cy.contains('Window').click()
+        cy.get('div > a.sidebar-toggle').click()
+    }
    
     toastr_Page() {    
         cy.visit('/')
