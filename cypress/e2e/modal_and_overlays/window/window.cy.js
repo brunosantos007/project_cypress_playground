@@ -34,7 +34,7 @@ describe('Window Form', () => {
         window_page.collapseWindowWithoutBackdrop()
     });
 
-    it.only('Open Homepage in a New Tab', () => {
+    it('Open Homepage in a New Tab', () => {
         navigateTo.window_Page()
         window_page.openHomePageInANewTab()
     });
