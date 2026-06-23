@@ -8,12 +8,30 @@ beforeEach(() => {
 })
 
 describe('To do List', () => {
-    it('Move tasks from To do to Done', () => {
+    it('Move Task from To Do to Done', () => {
         extra_component_page.moveTaskToDone()
     });
 
-    it('Task Done must have Icon Completed', () => {
-        extra_component_page.moveTaskToDone()
-        cy.get('button[color="accent"]').should('exist')
+    it('Move Task from Done to To Do', () => {
+        extra_component_page.moveTaskDoneForToDo()
+    });
+
+    it('Create a New Task', () => {
+        extra_component_page.createNewTask()
+        cy.get('[data-source="items"]').then(todo => {
+            cy.wrap(todo).first().should('contain.text', 'Teste')
+        })
+    });
+
+    it('Delete a Task in To Do', () => {
+        extra_component_page.deleteTaskToDo()
+    });
+
+    it('Delete a Task in Done', () => {
+        extra_component_page.deleteTaskDone()
+    });
+
+    it('Completed Icon', () => {
+        extra_component_page.completedIcon()
     });
 })
