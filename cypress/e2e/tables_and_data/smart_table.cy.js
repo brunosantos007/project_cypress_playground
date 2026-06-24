@@ -1,34 +1,13 @@
 /// <reference types="cypress" />
 
 import { navigateTo } from "../../page_objects/navigationPage";
+import { faker } from '@faker-js/faker';
 
 describe('Testing the Dialog Box', () => {
-    it('Dialog Box for Delete', () => {
-        navigateTo.smart_table_Page()
-        //cy.get('.nb-trash').first().click()
-        //cy.on('window:confirm', confirm => {
-            //expect(confirm).to.equal('Are you sure you want to delete?')
-        //})
-
-        // With False we can guarantee that the dialob box will be clicled to become negative, then It will click on cancel
-        cy.window().then(win => {
-            cy.stub(win, 'confirm').as('dialogBox').returns(false)
-        })
-        cy.get('.nb-trash').first().click()
-        cy.get('@dialogBox').should('be.calledWith', 'Are you sure you want to delete?')
-    });
+    
 })
 
-describe('Web Tables', () => {
-    it('Edit values on the table', () => {
-        navigateTo.smart_table_Page()
-        cy.get('tbody').contains('tr', 'Larry').then(tableRow => {
-            cy.wrap(tableRow).find('.nb-edit').click()
-            cy.wrap(tableRow).find('[placeholder="Age"]').clear().type('35')
-            cy.wrap(tableRow).find('.nb-checkmark').click()
-            cy.wrap(tableRow).find('td').last().should('have.text', '35')
-        })
-    });
+describe('Smart Table', () => {
 
     it('Create a new User', () => {
         navigateTo.smart_table_Page()
@@ -45,20 +24,63 @@ describe('Web Tables', () => {
         })
     });
 
-    it('Filter Data from Web Table', () => {
-        navigateTo.smart_table_Page()
-        const ages = [20, 30, 40, 200]
+    // const placeHolderName = ['ID', 'First Name', 'Last Name', 'Username', 'E-mail', 'Age']
 
-        cy.wrap(ages).each(age => {
-        cy.get('[placeholder="Age"]').clear().type(age)
-        cy.wait(500)
-        cy.get('tbody tr').last().each(tableRow => {
-            if (age == 200) {
-                cy.get('td').should('not.have.text', age)
-            } else {
-                cy.wrap(tableRow).find('td').last().should('have.text', age)
-            }
-        })
+    const placeHolderName = [
+        { placeholder: 'ID', value: `${faker.number.int()}` },
+        { placeholder: 'First Name', value: `${faker.person.firstName()}` },
+        { placeholder: 'Last Name', value: `${faker.person.lastName()}` },
+        { placeholder: 'Username', value: `${faker.internet.username()}`},
+        { placeholder: 'E-mail', value: `${faker.internet.email()}`},
+        { placeholder: 'Age', value: `${faker.number.int({ min: 10, max: 99 })}`}
+    ]
+
+
+    placeHolderName.forEach(holderName => {
+        it(`Edit ${holderName.placeholder} on the table`, () => {
+        navigateTo.smart_table_Page()
+        cy.get('tbody tr').first().then(tableRow => {
+            cy.wrap(tableRow).find('.nb-edit').click()
+            cy.wrap(tableRow).find(`[placeholder="${holderName.placeholder}"]`).clear().type(`${holderName.value}`)
+            cy.wrap(tableRow).find('.nb-checkmark').click()
+            cy.wrap(tableRow).contains('td', holderName.value).should('be.visible')
         })
     });
-})
+
+
+    })
+    
+    it('Delete an User', () => {
+        navigateTo.smart_table_Page()
+        cy.window().then(win => {
+            cy.stub(win, 'confirm').as('dialogBox').returns(false)
+        })
+        cy.get('.nb-trash').first().click()
+        cy.get('@dialogBox').should('be.calledWith', 'Are you sure you want to delete?')
+    });
+
+    
+
+        const searchForUserByAttribute = [
+            { placeholder: 'ID', value: faker.number.int({ min: 1, max: 60 }) },
+            { placeholder: 'First Name', value: 'Lou' },
+            { placeholder: 'Last Name', value: 'Talley' },
+            { placeholder: 'Username', value: '@Hendricks' },
+            { placeholder: 'E-mail', value: 'friedacraig@comtours.com' },
+            { placeholder: 'Age', value: faker.number.int({ min: 20, max: 47 }) }
+        ]
+
+        searchForUserByAttribute.forEach(field => {
+
+            it.only(`Filter by ${field.placeholder}`, () => {
+                navigateTo.smart_table_Page()
+                cy.get(`[placeholder="${field.placeholder}"]`).clear().type(field.value)
+                cy.wait(500)
+                cy.get('tbody tr').each(row => {
+                    cy.wrap(row).find('td').should('contain.text', field.value)
+                })
+            })
+        })
+
+
+});
