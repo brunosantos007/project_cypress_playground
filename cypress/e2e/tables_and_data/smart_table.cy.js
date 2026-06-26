@@ -72,7 +72,7 @@ describe('Smart Table', () => {
 
         searchForUserByAttribute.forEach(field => {
 
-            it.only(`Filter by ${field.placeholder}`, () => {
+            it(`Filter by ${field.placeholder}`, () => {
                 navigateTo.smart_table_Page()
                 cy.get(`[placeholder="${field.placeholder}"]`).clear().type(field.value)
                 cy.wait(500)
